@@ -1,0 +1,9 @@
+torch
+transformers
+inseq
+tqdm
+sacrebleu
+pandas
+unbabel-comet
+datasets
+numpy
