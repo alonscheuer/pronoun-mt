@@ -59,7 +59,7 @@ def main():
                                 "ctx_tgt": tgt_doc[i_sent - 1],
                                 "tags": tags})
 
-    json.dump(samples, open(args.output), indent=2)
+    json.dump(samples, open(args.output, "w"), indent=2)
 
 
 if __name__ == "__main__":

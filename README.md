@@ -19,9 +19,9 @@ pip install -r requirements.txt
 
 To prepare the data, run:
 ```
-python collect_data.py 	--config [iwslt2017-en-de|iwslt2017-en-zh]
+python collect_data.py 	--config [de|zh]
 ```
-Choosing between either the `iwslt2017-en-de` config for German, or `iwslt2017-en-zh` for Chinese. The code will create the necessary files for running the MuDA tagging. This amounts to 9 files overall: for each dataset split (train, validation, test) there is one file containing English sentences (\*_muda.en), one file containing the sentences in the target language (\*_muda.de/zh), and one file containing document ids (\*_docids). These are needed as input for MuDA.
+Choosing between either the `de` config for German, or `zh` for Chinese. The code will create the necessary files for running the MuDA tagging. This amounts to 9 files overall: for each dataset split (train, validation, test) there is one file containing English sentences (\*_muda.en), one file containing the sentences in the target language (\*_muda.de/zh), and one file containing document ids (\*_docids). These are needed as input for MuDA.
 
 ## MuDA Tagging
 
@@ -49,6 +49,14 @@ python finetune.py --train zh_train.json --validation zh_validation.json --base_
 ```
 
 Make sure both `train.json` and `validation.json` files have been formatted appropriately as explained above.
+
+### Note
+
+You are free to use the models we have fine-tuned:
+
+German: `alonscheuer/mbart-1-to-50-finetuned-en-to-de-context-aware`
+
+Chinese: `vincentfan/mbart-1-to-50-finetuned-en-to-zh-context-aware`
 
 ## Translating
 
