@@ -1,4 +1,4 @@
-# Exploration and Token Attribution of Context-Aware Machine Translation in German and Chinese
+# Exploring Context Sensitivity in Machine Translation: A Comparative Analysis of English to German and Chinese Translations
 
 ## Dependencies
 
