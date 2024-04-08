@@ -34,9 +34,13 @@ def main():
         inputs = tokenizer(src, return_tensors = "pt").to(args.device)
         outputs = model.generate(**inputs, forced_bos_token_id=tokenizer.lang_code_to_id[lang_codes.get(args.target_lang)])
         translation = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        sample["translations"][args.shortname]["src"] = src
-        sample["translations"][args.shortname]["tgt"] = sample["tgt"]
-        sample["translations"][args.shortname]["translation"] = translation
+        if not sample["translations"]:
+            sample["translations"] = {}
+        sample["translations"][args.shortname] = {
+            "src": src,
+            "tgt": sample["tgt"],
+            "translation": translation
+        }
 
     with open(args.output, "w") as output:
         json.dump(samples, output)
